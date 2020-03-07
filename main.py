@@ -19,10 +19,6 @@ def calc_nature(nature, target):
       
       return nature
 
-"""
-main.py
-Put a description of your file here.
-"""
 import random
 import json
 #Nature Resolution
