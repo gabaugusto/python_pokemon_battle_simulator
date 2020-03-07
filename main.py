@@ -19,6 +19,52 @@ def calc_nature(nature, target):
       
       return nature
 
+"""
+main.py
+Put a description of your file here.
+"""
+import random
+import json
+#Nature Resolution
+
+power = 80
+move_type = 'Bug'
+type_def_01 = 'Psychic'
+type_def_02 = 'Grass'
+
+def calc_types(power, move_type, type_def_01, type_def_02):
+  #USAGE calc_types(power, move_type, type_def_01, type_def_02)    
+  with open('eff.json') as json_file:
+
+    data = json.load(json_file)
+    if data['super_effective'][move_type]:
+      if type_def_01 in data['super_effective'][move_type]:
+        power *= 2
+    if data['super_effective'][move_type]:
+      if type_def_02 in data['super_effective'][move_type]:
+        power *= 2        
+    if data['normal_effective'][move_type]:
+      if type_def_01 in data['normal_effective'][move_type]:
+        power *= 1       
+    if data['normal_effective'][move_type]:
+      if type_def_02 in data['normal_effective'][move_type]:
+        power *= 1              
+    if data['not_very_effective'][move_type]:
+      if type_def_01 in data['not_very_effective'][move_type]:
+        power *= 0.5       
+    if data['not_very_effective'][move_type]:
+      if type_def_02 in data['not_very_effective'][move_type]:
+        power *= 0.5       
+    if data['no_effect'][move_type]:
+      if type_def_01 in data['no_effect'][move_type]:
+        power *= 0      
+    if data['no_effect'][move_type]:
+      if type_def_02 in data['no_effect'][move_type]:
+        power *= 0  
+    
+    print('The power of the move is', power)
+    return power
+
 class Moves:
       """
       Base class used to create Moves
@@ -111,12 +157,12 @@ pokemon_11 = Pokemon("Rapidash", id, 100, 255, 255, 0, 1, 3, 0, 100, 100, 100, 1
 team_a = [pokemon_01, pokemon_03, pokemon_05, pokemon_07, pokemon_09, pokemon_11]
 
 #self, name, id, level, happiness, weight, nature, type_01, type_02, base_hp, base_attack, base_defense, base_sp_attack, base_sp_defense, base_speed, ev_hp, ev_attack, ev_defense, ev_sp_attack, ev_sp_defense, ev_speed, iv_hp, iv_attack, iv_defense, iv_sp_attack, iv_sp_defense, iv_speed, type_1, type_2, attach_item, ability, status, accuracy, evasion, team
-pokemon_02 = Pokemon("Blastoise", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-pokemon_04 = Pokemon("Charizard", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-pokemon_06 = Pokemon("Snorlax", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-pokemon_08 = Pokemon("Raichu", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-pokemon_10 = Pokemon("Lapras", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-pokemon_12 = Pokemon("Venusaur", id, 100, 255, 255, 0, 1, 3, 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_02 = Pokemon("Blastoise", id, 100, 255, 255, 0, "Water", "", 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_04 = Pokemon("Charizard", id, 100, 255, 255, 0, "Fire", "Flying", 0, 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_06 = Pokemon("Snorlax", id, 100, 255, 255, 0, 1, "Normal", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_08 = Pokemon("Raichu", id, 100, 255, 255, 0, 1, "Eletric", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_10 = Pokemon("Lapras", id, 100, 255, 255, 0, 1, "Water", "Ice", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
+pokemon_12 = Pokemon("Venusaur", id, 100, 255, 255, 0, 1, "Grass", "Poison", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
 team_b = [pokemon_02, pokemon_04, pokemon_06, pokemon_08, pokemon_10, pokemon_12]
 
 class Character:
