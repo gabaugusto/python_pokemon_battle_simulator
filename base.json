@@ -1,0 +1,56 @@
+{
+    "player": {
+        "Name": "Bigby",
+        "pokemon_01": {  
+          "name": "Gengar",
+          "type": [
+            "Ghost",
+            "Poison"
+          ],
+          "level": 100,
+          "pokedex": 94,
+          "form": "",
+          "weight": "",
+          "nature": "Timid",
+          "ability": "Cursed Body",
+          "happiness": 255,
+          "base_stats": [  
+            {"hp": 60, "attack": 65, "defense": 60, "sp_attack": 130, "sp_defense": 75, "speed": 110}
+          ], 
+          "base_evs": [  
+            {"hp": 100, "attack": 100, "defense": 100, "sp_attack": 100, "sp_defense": 100, "speed": 100}
+          ],  
+          "base_ivs": [  
+            {"hp": 31, "attack": 31, "defense": 31, "sp_attack": 31, "sp_defense": 31, "speed": 31}
+          ],       
+        "accuracy": 100,                         
+        "evasion": 100,                         
+        "attach_item": "Focus Sash"
+        },
+        "pokemon_02": {  
+          "name": "Snorlax",
+          "type": [
+            "Normal"
+          ],
+          "level": 100,
+          "pokedex": 94,
+          "form": "",
+          "weight": "",
+          "nature": "Timid",
+          "ability": "Cursed Body",
+          "happiness": 255,
+          "base_stats": [  
+            {"hp": 60, "attack": 65, "defense": 60, "sp_attack": 130, "sp_defense": 75, "speed": 110}
+          ], 
+          "base_evs": [  
+            {"hp": 100, "attack": 100, "defense": 100, "sp_attack": 100, "sp_defense": 100, "speed": 100}
+          ],  
+          "base_ivs": [  
+            {"hp": 31, "attack": 31, "defense": 31, "sp_attack": 31, "sp_defense": 31, "speed": 31}
+          ],       
+        "accuracy": 100,                         
+        "evasion": 100,                         
+        "attach_item": "Focus Sash"
+        }        
+    }
+}
