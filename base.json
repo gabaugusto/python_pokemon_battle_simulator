@@ -1,56 +1,284 @@
 {
-    "player": {
-        "Name": "Bigby",
-        "pokemon_01": {  
-          "name": "Gengar",
-          "type": [
-            "Ghost",
-            "Poison"
-          ],
-          "level": 100,
-          "pokedex": 94,
-          "form": "",
-          "weight": "",
-          "nature": "Timid",
-          "ability": "Cursed Body",
-          "happiness": 255,
-          "base_stats": [  
-            {"hp": 60, "attack": 65, "defense": 60, "sp_attack": 130, "sp_defense": 75, "speed": 110}
-          ], 
-          "base_evs": [  
-            {"hp": 100, "attack": 100, "defense": 100, "sp_attack": 100, "sp_defense": 100, "speed": 100}
-          ],  
-          "base_ivs": [  
-            {"hp": 31, "attack": 31, "defense": 31, "sp_attack": 31, "sp_defense": 31, "speed": 31}
-          ],       
-        "accuracy": 100,                         
-        "evasion": 100,                         
-        "attach_item": "Focus Sash"
-        },
-        "pokemon_02": {  
-          "name": "Snorlax",
-          "type": [
-            "Normal"
-          ],
-          "level": 100,
-          "pokedex": 94,
-          "form": "",
-          "weight": "",
-          "nature": "Timid",
-          "ability": "Cursed Body",
-          "happiness": 255,
-          "base_stats": [  
-            {"hp": 60, "attack": 65, "defense": 60, "sp_attack": 130, "sp_defense": 75, "speed": 110}
-          ], 
-          "base_evs": [  
-            {"hp": 100, "attack": 100, "defense": 100, "sp_attack": 100, "sp_defense": 100, "speed": 100}
-          ],  
-          "base_ivs": [  
-            {"hp": 31, "attack": 31, "defense": 31, "sp_attack": 31, "sp_defense": 31, "speed": 31}
-          ],       
-        "accuracy": 100,                         
-        "evasion": 100,                         
-        "attach_item": "Focus Sash"
-        }        
+  "player": {
+    "Name": "Bigby",
+    "Region": "World",
+    "pokemon_01": {
+      "name": "Gengar",
+      "type": [
+        "Ghost",
+        "Poison"
+      ],
+      "level": 100,
+      "pokedex": 94,
+      "form": "",
+      "mega_able": 1,
+      "weight": "",
+      "nature": "Timid",
+      "ability": "Cursed Body",
+      "happiness": 255,
+      "base_stats": [{
+        "hp": 60,
+        "attack": 65,
+        "defense": 60,
+        "sp_attack": 130,
+        "sp_defense": 75,
+        "speed": 110
+      }],
+      "base_evs": [{
+        "hp": 4,
+        "attack": 0,
+        "defense": 0,
+        "sp_attack": 252,
+        "sp_defense": 0,
+        "speed": 252
+      }],
+      "base_ivs": [{
+        "hp": 31,
+        "attack": 31,
+        "defense": 31,
+        "sp_attack": 31,
+        "sp_defense": 31,
+        "speed": 31
+      }],
+      "accuracy": 100,
+      "evasion": 100,
+      "attach_item": "Focus Sash",
+      "moves": [{
+        "move_01": [{
+          "name": "Shadow Ball",
+          "id": 0,
+          "category": "Special",
+          "type": "Ghost",
+          "pp": 20,
+          "power": 80,
+          "acc": 100,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 4.17,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Lower Sp. Def",
+          "percent_eff": 20
+        }],
+        "move_02": [{
+          "name": "Sludge Wave",
+          "id": 0,
+          "category": "Special",
+          "touch": false,
+          "type": "Poison",
+          "pp": 20,
+          "power": 95,
+          "acc": 95,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 4.17,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Poison",
+          "percent_eff": 10
+        }],
+        "move_03": [{
+          "name": "Sludge Bomb",
+          "id": 0,
+          "category": "Physical",
+          "touch": true,
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "acc": 100,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 4.17,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Poison",
+          "percent_eff": 30
+        }],
+        "move_04": [{
+          "name": "Pain Split",
+          "id": 0,
+          "category": "Other",
+          "touch": false,
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "acc": 101,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 0,
+          "physical_contact": 0,
+          "punch_move": 0,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "",
+          "percent_eff": 0
+        }]
+      }]
+    },
+    "pokemon_02": {
+      "name": "Weezing",
+      "type": [
+        "Fairy",
+        "Poison"
+      ],
+      "level": 100,
+      "pokedex": 94,
+      "form": "Galarian",
+      "mega_able": 1,
+      "weight": "",
+      "nature": "Bold",
+      "ability": "Levitate",
+      "happiness": 255,
+      "base_stats": [{
+        "hp": 65,
+        "attack": 90,
+        "defense": 120,
+        "sp_attack": 85,
+        "sp_defense": 70,
+        "speed": 60
+      }],
+      "base_evs": [{
+        "hp": 0,
+        "attack": 0,
+        "defense": 252,
+        "sp_attack": 0,
+        "sp_defense": 4,
+        "speed": 0
+      }],
+      "base_ivs": [{
+        "hp": 31,
+        "attack": 31,
+        "defense": 31,
+        "sp_attack": 31,
+        "sp_defense": 31,
+        "speed": 0
+      }],
+      "accuracy": 100,
+      "evasion": 100,
+      "attach_item": "Sludge Belcher",
+      "moves": [{
+        "move_01": [{
+          "name": "Shadow Ball",
+          "id": 0,
+          "category": "Special",
+          "type": "Ghost",
+          "pp": 20,
+          "power": 80,
+          "acc": 100,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 4.17,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Lower Sp. Def",
+          "percent_eff": 20
+        }],
+        "move_02": [{
+          "name": "Will-o-Wisp",
+          "id": 0,
+          "category": "Other",
+          "touch": false,
+          "type": "Fire",
+          "pp": 20,
+          "power": 0,
+          "acc": 100,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 0,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Burn",
+          "percent_eff": 100
+        }],
+        "move_03": [{
+          "name": "Sludge Bomb",
+          "id": 0,
+          "category": "Physical",
+          "touch": true,
+          "type": "Poison",
+          "pp": 20,
+          "power": 80,
+          "acc": 100,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 4.17,
+          "physical_contact": 0,
+          "punch_move": 1,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "Poison",
+          "percent_eff": 30
+        }],
+        "move_04": [{
+          "name": "Pain Split",
+          "id": 0,
+          "category": "Other",
+          "touch": false,
+          "type": "Normal",
+          "pp": 20,
+          "power": 0,
+          "acc": 101,
+          "speed_priority": 0,
+          "base_critical_hit_rate": 0,
+          "physical_contact": 0,
+          "punch_move": 0,
+          "biting _move": 0,
+          "affected_by_gravity": 0,
+          "defrosts": 0,
+          "blockeable": 1,
+          "snatchable": 0,
+          "reflectable": 0,
+          "copyable_by_mirror_move": 1,
+          "sound_type": "",
+          "sec_eff": "",
+          "percent_eff": 0
+        }]
+      }]
     }
+  }
 }
