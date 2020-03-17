@@ -1,5 +1,5 @@
 {
-  "player_01": {
+  "player_00": {
     "Name": "Bigby",
     "Region": "World",
     "AI": "None",
@@ -982,26 +982,29 @@
       }]
     }      
   },
-  "player_02": {
+  "player_01": {
     "Name": "Red",
     "Region": "Kanto",
     "AI": "RBY",
     "victory": "...",
     "defeat": "...!",
-    "pokemon_01": {
+   "pokemon_01": {
       "name": "Pikachu",
       "type": [
-        "Eletric"
+        "Eletric",
+        ""
       ],
       "level": 100,
       "pokedex": 94,
       "status": "",
       "temp_status": "",
-      "mega_able": 0,
+      "form": "",
+      "mega_able": 1,
       "mega_ability": "",
       "mega_typing": [
-        "Eletric"
-      ],     
+        "Ghost",
+        "Poison"
+      ],    
       "weight": "",
       "nature": "Timid",
       "ability": "Static",
@@ -1040,14 +1043,14 @@
       }],
       "accuracy": 100,
       "evasion": 100,
-      "attach_item": "Light Ball",
+      "attach_item": "Focus Sash",
       "moves": [{
         "move_01": [{
-          "name": "Volt Tackle",
+          "name": "Shadow Ball",
           "id": 0,
-          "category": "Physical",
-          "touch": true,
-          "type": "Eletric",
+          "category": "Special",
+          "touch": false,
+          "type": "Ghost",
           "pp": 20,
           "power": 80,
           "acc": 100,
@@ -1065,7 +1068,7 @@
           "copyable_by_mirror_move": 1,
           "sound_type": "",
           "sec_eff": "Lower Sp. Def",
-          "recovery": -0.2,
+          "recovery": 0,
           "percent_eff": 20
         }],
         "move_02": [{
