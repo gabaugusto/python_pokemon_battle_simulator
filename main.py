@@ -2,7 +2,6 @@
 main.py
 Pokemon Battle Simulator
 """
-
 import random
 import json
 
@@ -86,7 +85,6 @@ class Moves:
       """
       Base class used to create Moves
       """
-
       def __init__(self, name, category, move_type, id, pp, power, acc, sec_eff, percent_eff):
               self.name = name
               self.id = id 
@@ -104,97 +102,57 @@ class Moves:
                 game_in_progress = False       
 
 class Pokemon:
-
       """
-
       Base class used to create Pokemons
-
       """
 
-      def __init__(self, name, id, level, happiness, form, weight, nature, type_01, type_02, base_hp, base_attack, base_defense, base_sp_attack, base_sp_defense, base_speed, ev_hp, ev_attack, ev_defense, ev_sp_attack, ev_sp_defense, ev_speed, iv_hp, iv_attack, iv_defense, iv_sp_attack, iv_sp_defense, iv_speed, attach_item, ability, status, accuracy, evasion, team):
+      def __init__(self, name, id, level, happiness, form, weight, nature, type_01, type_02, base_hp, base_attack, base_defense, base_sp_attack, base_sp_defense, base_speed, ev_hp, ev_attack, ev_defense, ev_sp_attack, ev_sp_defense, ev_speed, iv_hp, iv_attack, iv_defense, iv_sp_attack, iv_sp_defense, iv_speed, attach_item, ability, status, accuracy, evasion, team, move_01, move_02, move_03, move_04):
 
         self.name = name
-
         self.id = id 
-
         self.level = level
-
         self.happiness = happiness
-
         self.form = form
-
         self.weight = weight
-
         self.nature = nature
-
         self.type_01 = type_01
-
         self.type_02 = type_02
-
         self.attach_item = attach_item
-
         self.ability = ability
-
         self.status = status
-
         self.base_hp = base_hp
-
         self.base_attack = base_attack
-
         self.base_defense = base_defense
-
         self.base_sp_attack = base_sp_attack
-
         self.base_sp_defense = base_sp_defense
-
         self.base_speed = base_speed    
-
         self.ev_hp = ev_hp
-
         self.ev_attack = ev_attack
-
         self.ev_defense = ev_defense
-
         self.ev_sp_attack = ev_sp_attack
-
         self.ev_sp_defense = ev_sp_defense
-
         self.ev_speed = ev_speed
-
         self.iv_hp = iv_hp
-
         self.iv_attack = iv_attack
-
         self.iv_defense = iv_defense
-
         self.iv_sp_attack = iv_sp_attack
-
         self.iv_sp_defense = iv_sp_defense
-
         self.iv_speed = iv_speed
-
         self.hp = ((((2 * base_hp) + iv_hp + (ev_hp/4)) * level)/100)  + level + 10
-
         self.current_hp = self.hp 
-
         self.attack = (((((2 * base_attack) + iv_attack + (ev_attack/4)) * level)/100)  + 5) * calc_nature(nature, "attack")
-
         self.defense = (((((2 * base_defense) + iv_defense + (ev_defense/4)) * level)/100)  + 5) * calc_nature(nature, "defense")
-
         self.sp_attack = (((((2 * base_sp_attack) + iv_sp_attack + (ev_sp_attack/4)) * level)/100)  + 5) * calc_nature(nature, "sp_attack")
-
         self.sp_defense = (((((2 * base_sp_defense) + iv_sp_defense + (ev_sp_defense/4)) * level)/100)  + 5) * calc_nature(nature, "sp_defense")
-
         self.speed = (((((2 * base_speed) + iv_speed + (ev_speed/4)) * level)/100)  + 5) * calc_nature(nature, "speed")
-
         self.accuracy = accuracy
         self.evasion = evasion
         self.team = team
 
-        self.move_01 = Moves("Body Slam", 1, "Normal", 1, 8, 80, 100, "paralyze", 20)
-        self.move_02 = Moves("Earthquake", 1, "Ground", 1, 8, 100, 100, "none", 0)
-        self.move_03 = Moves("Fire Punch", 1, "Fire", 1, 8, 60, 100, "Burn", 30)
-        self.move_04 = Moves("Crunch", 1, "Dark", 1, 8, 80, 100, "Flinch", 10)
+        self.move_01 = move_01
+        self.move_02 = move_02
+        self.move_03 = move_03
+        self.move_04 = move_04
 
       def update_status(self, target, value):
         self.target = value
@@ -202,66 +160,41 @@ class Pokemon:
       def change_form(self, form, value, f_attack, f_defense, f_sp_attack, f_sp_defense, f_speed, f_ability):
 
         update_status(form, value)
-
         update_status(self.attack, f_attack)
-
         update_status(self.defense, f_defense)
-
         update_status(self.sp_attack, f_sp_attack)
-
         update_status(self.sp_defense, f_sp_defense)
-
         update_status(self.speed, f_speed)
-
         update_status(self.ability, f_ability)
-
 			
-#name, id, level, happiness, form, weight, nature, type_01, type_02, base_hp, base_attack, base_defense, base_sp_attack, base_sp_defense, base_speed, ev_hp, ev_attack, ev_defense, ev_sp_attack, ev_sp_defense, ev_speed, iv_hp, iv_attack, iv_defense, iv_sp_attack, iv_sp_defense, iv_speed, attach_item, ability, status, accuracy, evasion, team)
-pokemon_01 = Pokemon("Snorlax", id, 100, 255, "", 255, 'Adamant', "Normal", "", 160, 110, 65, 65, 110, 30, 252, 0, 252, 0, 4, 0, 31, 0, 0, 31, 31, 0, 0, 55, 0, 100, 100, 1)
-
-pokemon_03 = Pokemon("Arcanine", id, 100, 255, "", 255, 'Adamant', "Fire", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_05 = Pokemon("Suicune", id, 100, 255, "", 255, 'Modest', "Water", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_07 = Pokemon("Mew", id, 100, 255, 255, "", 'Modest', "Psychic", "", 100, 100, 100, 100, 100, 100, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_09 = Pokemon("Gengar", id, 100, 255, 255, "", 'Timid', "Ghost", "Poison", 100, 100, 100, 100, 100, 100, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_11 = Pokemon("Rapidash", id, 100, 255, 255, "", 'Jolly', "Psychic", "Fairy", 100, 100, 100, 100, 100, 100, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-team_a = [pokemon_01, pokemon_03, pokemon_05, pokemon_07, pokemon_09, pokemon_11]
-
-#self, name, id, level, happiness, weight, nature, type_01, type_02, base_hp, base_attack, base_defense, base_sp_attack, base_sp_defense, base_speed, ev_hp, ev_attack, ev_defense, ev_sp_attack, ev_sp_defense, ev_speed, iv_hp, iv_attack, iv_defense, iv_sp_attack, iv_sp_defense, iv_speed, type_1, type_2, attach_item, ability, status, accuracy, evasion, team
-
-pokemon_02 = Pokemon("Blastoise", id, 100, 255, "", 255, 'Modest', "Water", "",  79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_04 = Pokemon("Charizard", id, 100, 255, "", 255, 'Timid', "Fire", "Flying", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_06 = Pokemon("Snorlax", id, 100, 255, "", 255, 'Adamant', "Normal", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_08 = Pokemon("Raichu", id, 100, 255, "", 255, 'Modest', "Eletric", "", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_10 = Pokemon("Lapras", id, 100, 255, "", 255, 'Modest', "Water", "Ice", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-pokemon_12 = Pokemon("Venusaur", id, 100, 255, "", 255, 'Calm', "Grass", "Poison", 79, 83, 100, 85, 105, 78, 252, 0, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, 0, 55, 0, 100, 100, 2)
-
-team_b = [pokemon_02, pokemon_04, pokemon_06, pokemon_08, pokemon_10, pokemon_12]
-
 
 
 class Character:
       """
-      Base class used to create Character that hold the teams 
+      Base class used to create Character that hold the teams, pokemons and moves
       """
+      #USAGE
+      def __init__(self, id):
+        with open('base.json') as json_file:
+          base = json.load(json_file)
+          id = 'player_0' + str(id)
+          self.name = base[id]['Name']
+          self.region = base[id]['Region']
+          self.ai = base[id]['AI']
+          self.message_victory = base[id]['victory']
+          self.message_defeat = base[id]['defeat']
+         
+          #print(base[id]['pokemon_01']['moves'])
 
-      def __init__(self, name, id, team):
-        self.name = name
-        self.id = id 
-        self.team = team  
+          self.pokemon_01 = Pokemon(base[id]['pokemon_01']['name'], base[id]['pokemon_01']['pokedex'], base[id]['pokemon_01']['level'], base[id]['pokemon_01']['happiness'], base[id]['pokemon_01']['happiness'], base[id]['pokemon_01']['weight'], base[id]['pokemon_01']['nature'], base[id]['pokemon_01']['type'][0], base[id]['pokemon_01']['type'][1], base[id]['pokemon_01']['base_stats'][0]['hp'], base[id]['pokemon_01']['base_stats'][0]['attack'], base[id]['pokemon_01']['base_stats'][0]['defense'], base[id]['pokemon_01']['base_stats'][0]['sp_attack'], base[id]['pokemon_01']['base_stats'][0]['sp_defense'], base[id]['pokemon_01']['base_stats'][0]['speed'], base[id]['pokemon_01']['base_evs'][0]['hp'], base[id]['pokemon_01']['base_evs'][0]['attack'], base[id]['pokemon_01']['base_evs'][0]['defense'], base[id]['pokemon_01']['base_evs'][0]['sp_attack'], base[id]['pokemon_01']['base_evs'][0]['sp_defense'], base[id]['pokemon_01']['base_evs'][0]['speed'], base[id]['pokemon_01']['base_ivs'][0]['hp'], base[id]['pokemon_01']['base_ivs'][0]['attack'], base[id]['pokemon_01']['base_ivs'][0]['defense'], base[id]['pokemon_01']['base_ivs'][0]['sp_attack'], base[id]['pokemon_01']['base_ivs'][0]['sp_defense'], base[id]['pokemon_01']['base_ivs'][0]['speed'], base[id]['pokemon_01']['attach_item'], base[id]['pokemon_01']['ability'], base[id]['pokemon_01']['status'], base[id]['pokemon_01']['accuracy'], base[id]['pokemon_01']['evasion'],1, Moves(base[id]['pokemon_01']['moves'][0]['move_01'][0]['name'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['category'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['type'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['id'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['pp'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['power'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['acc'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['sec_eff'], base[id]['pokemon_01']['moves'][0]['move_01'][0]['percent_eff']), Moves(base[id]['pokemon_01']['moves'][0]['move_02'][0]['name'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['category'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['type'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['id'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['pp'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['power'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['acc'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['sec_eff'], base[id]['pokemon_01']['moves'][0]['move_02'][0]['percent_eff']), Moves(base[id]['pokemon_01']['moves'][0]['move_03'][0]['name'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['category'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['type'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['id'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['pp'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['power'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['acc'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['sec_eff'], base[id]['pokemon_01']['moves'][0]['move_03'][0]['percent_eff']), Moves(base[id]['pokemon_01']['moves'][0]['move_04'][0]['name'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['category'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['type'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['id'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['pp'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['power'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['acc'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['sec_eff'], base[id]['pokemon_01']['moves'][0]['move_04'][0]['percent_eff']))
 
       def check_team(self, name, id, team):
         if self.team.count > 0:
           pass
+
+player = Character(0)    
+npc = Character(1)    
+print(player.pokemon_01.name)
 
 ####################### - Print Functions
 def print_damage(target, move, damage):
@@ -279,7 +212,6 @@ def self_damage_calculation(target_current_hp, damage):
       return target_current_hp
 
 ### Damage Calculation ###
-
 def damage_calculation(move, attacker, defender):
 
       #Definitions
@@ -375,13 +307,13 @@ def damage_calculation(move, attacker, defender):
       print("type_calculation:", type_calculation)
 
       #Calc Modifiers
-      modifier = weather_mod * badge * critical * random_mod * stab * type_calculation * burn_mod
+      modifier = int(weather_mod) * int(badge) * int(critical) * float(random_mod) * int(stab) * int(type_calculation) * int(burn_mod)
+      print(move_power, attacker_level, attacker_stat, defender_stat, modifier)
 
       #Calc Damage
       damage = (((((2 * attacker_level)/5 + 2) * move_power * (attacker_stat/defender_stat))/50) + 2 ) * modifier
 
       #Calc LifeOrb
-
       if attacker_attach_item == 'life_orb':
               damage = damage * 1.3
               self_damage_calculation(attacker_current_hp, 0.3)
@@ -408,61 +340,65 @@ def random_climate(pokemon_01, pokemon_02):
 
     pass
 
-
-def turn(team_, pokemon_12):
+def game(player, npc):
     if __name__ == '__main__':
       turn_counter = 0
 
       game_in_progress = True
+      while game_in_progress:
+        turn()
+
+pokemon_01 = player.pokemon_01
+pokemon_02 = npc.pokemon_01
+
+def turn(pokemon_01, pokemon_02):
       print(pokemon_01.name, "is out")
       print(pokemon_02.name, "is out")
+      turn_counter = 0
+      game_in_progress = True
+      move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
 
-      while game_in_progress:
+      move_list_opponent =  [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
+      action = 0
 
-        
-        move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
+      while not int(action) in range(1,5): 
+        print('Turn ', turn_counter)
+        print('What will', pokemon_01.name, "do?")
+        print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
 
-        move_list_opponent =  [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
-        action = 0
+        action = int(input(" "))
 
-        while not int(action) in range(1,5): 
-          print('Turn ', turn_counter)
-          print('What will', pokemon_01.name, "do?")
-          print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
+      action = action - 1
+      chosen_move = move_list[action]
+      randon_choice = random.randint(0, 3)
+      chosen_move_opponent = move_list_opponent[randon_choice]
 
-          action = int(input(" "))
+      #checkPriority
+      Moves.action("", action, pokemon_01, pokemon_02)
+      if game_in_progress == True:
+        Moves.action("", randon_choice, pokemon_02, pokemon_01)
+      turn_counter += 1
+      if pokemon_01.current_hp <= 0:
 
-        action = action - 1
-        chosen_move = move_list[action]
-        randon_choice = random.randint(0, 3)
-        chosen_move_opponent = move_list_opponent[randon_choice]
+        #team_a.remove[pokemon_01]
+        for n in team_a:
+          print(team_a.index(pokemon_01))
 
-        #checkPriority
-        Moves.action("", action, pokemon_01, pokemon_02)
-        if game_in_progress == True:
-          Moves.action("", randon_choice, pokemon_02, pokemon_01)
-        turn_counter += 1
-        if pokemon_01.current_hp <= 0:
+        game_in_progress = False
+        print('game!')          
 
-          #team_a.remove[pokemon_01]
-          for n in team_a:
-            print(team_a.index(pokemon_01))
+      elif pokemon_02.current_hp <= 0:
+        #team_b.remove[0]
+        print(pokemon_02.name)
+        print(team_b.index(pokemon_02))
+        game_in_progress = False
 
-          game_in_progress = False
-          print('game!')          
+        for i, o in enumerate(team_b):
+            if o.current_hp <= 0:
+                print[team_b[i].name]
+                del team_b[i]
+                break
 
-        elif pokemon_02.current_hp <= 0:
-          #team_b.remove[0]
-          print(pokemon_02.name)
-          print(team_b.index(pokemon_02))
-          game_in_progress = False
+        print('game!')
 
-          for i, o in enumerate(team_b):
-              if o.current_hp <= 0:
-                  print[team_b[i].name]
-                  del team_b[i]
-                  break
-
-          print('game!')
-
-turn(pokemon_01, pokemon_02)
+turn(pokemon_01, pokemon_02)  
