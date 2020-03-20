@@ -228,7 +228,7 @@ def damage_calculation(move, attacker, defender):
       attacker_name = attacker.name
       attacker_id = attacker.id 
       attacker_level = attacker.level
-      attacker_stat = ""
+      attacker_stat = 1
       attacker_stat_attack = attacker.attack
       attacker_stat_special_attack = attacker.sp_attack     
       attacker_type_1 = attacker.type_01
@@ -242,7 +242,7 @@ def damage_calculation(move, attacker, defender):
       defender_name = defender.name
       defender_id = defender.id
       defender_level = defender.level
-      defender_stat = 0
+      defender_stat = 1
       defender_stat_defense = defender.defense
       defender_stat_special_defense = defender.sp_defense
       defender_type_1 = defender.type_01
@@ -279,7 +279,7 @@ def damage_calculation(move, attacker, defender):
         defender_stat_special_defense = defender_stat_special_defense * 1.25
 
       #Calc Muscle Band
-      if move_category == 1 and attacker_attach_item == 8:
+      if move_category == "Physical" and attacker_attach_item == 8:
         move_power = move_power * 1.3
 
       #Calc Rain and Harsh Sunlight
@@ -308,7 +308,6 @@ def damage_calculation(move, attacker, defender):
 
       #Calc Modifiers
       modifier = int(weather_mod) * int(badge) * int(critical) * float(random_mod) * int(stab) * int(type_calculation) * int(burn_mod)
-      print(move_power, attacker_level, attacker_stat, defender_stat, modifier)
 
       #Calc Damage
       damage = (((((2 * attacker_level)/5 + 2) * move_power * (attacker_stat/defender_stat))/50) + 2 ) * modifier
@@ -358,7 +357,7 @@ def turn(pokemon_01, pokemon_02):
       game_in_progress = True
       move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
 
-      move_list_opponent =  [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
+      move_list_opponent = [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
       action = 0
 
       while not int(action) in range(1,5): 
