@@ -658,7 +658,7 @@
     "pokemon_05": {
       "name": "Plasmanta",
       "type": [
-        "Eletric",
+        "Electric",
         "Poison"
       ],
       "level": 100,
@@ -669,7 +669,7 @@
       "mega_able": 1,
       "mega_ability": "Storm Drain",
       "mega_typing": [
-        "Eletric",
+        "Electric",
         "Poison"
       ],         
       "weight": "",
@@ -717,7 +717,7 @@
           "id": 0,
           "category": "Special",
           "touch": false,
-          "type": "Eletric",
+          "type": "Electric",
           "pp": 20,
           "power":  90,
           "acc": 100,
@@ -991,7 +991,7 @@
    "pokemon_01": {
       "name": "Pikachu",
       "type": [
-        "Eletric",
+        "Electric",
         ""
       ],
       "level": 100,
@@ -1046,13 +1046,13 @@
       "attach_item": "Focus Sash",
       "moves": [{
         "move_01": [{
-          "name": "Shadow Ball",
+          "name": "Thunderbolt",
           "id": 0,
           "category": "Special",
           "touch": false,
-          "type": "Ghost",
+          "type": "Electric",
           "pp": 20,
-          "power": 80,
+          "power": 90,
           "acc": 100,
           "speed_priority": 0,
           "base_critical_hit_rate": 4.17,
@@ -1067,18 +1067,18 @@
           "reflectable": 0,
           "copyable_by_mirror_move": 1,
           "sound_type": "",
-          "sec_eff": "Lower Sp. Def",
+          "sec_eff": "Paralize",
           "recovery": 0,
           "percent_eff": 20
         }],
         "move_02": [{
-          "name": "Sludge Wave",
+          "name": "Iron Tail",
           "id": 0,
-          "category": "Special",
-          "touch": false,
-          "type": "Poison",
+          "category": "Physical",
+          "touch": true,
+          "type": "Steel",
           "pp": 20,
-          "power": 95,
+          "power": 60,
           "acc": 95,
           "speed_priority": 0,
           "base_critical_hit_rate": 4.17,
@@ -1093,16 +1093,16 @@
           "reflectable": 0,
           "copyable_by_mirror_move": 1,
           "sound_type": "",
-          "sec_eff": "Poison",
+          "sec_eff": "",
           "recovery": 0,
-          "percent_eff": 10
+          "percent_eff": 0
         }],
         "move_03": [{
-          "name": "Sludge Bomb",
+          "name": "Grass Knot",
           "id": 0,
-          "category": "Physical",
+          "category": "Special",
           "touch": true,
-          "type": "Poison",
+          "type": "Grass",
           "pp": 20,
           "power": 80,
           "acc": 100,
@@ -1119,16 +1119,16 @@
           "reflectable": 0,
           "copyable_by_mirror_move": 1,
           "sound_type": "",
-          "sec_eff": "Poison",
+          "sec_eff": "0",
           "recovery": 0,
-          "percent_eff": 30
+          "percent_eff": 0
         }],
         "move_04": [{
-          "name": "Pain Split",
+          "name": "Thunder Wave",
           "id": 0,
           "category": "Other",
           "touch": false,
-          "type": "Normal",
+          "type": "Electric",
           "pp": 20,
           "power": 0,
           "acc": 101,
@@ -1640,7 +1640,7 @@
     "pokemon_05": {
       "name": "Plasmanta",
       "type": [
-        "Eletric",
+        "Electric",
         "Poison"
       ],
       "level": 100,
@@ -1695,7 +1695,7 @@
           "id": 0,
           "category": "Special",
           "touch": false,
-          "type": "Eletric",
+          "type": "Electric",
           "pp": 20,
           "power":  90,
           "acc": 100,
