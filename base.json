@@ -1010,12 +1010,12 @@
       "ability": "Static",
       "happiness": 255,
       "base_stats": [{
-        "hp": 60,
-        "attack": 65,
-        "defense": 60,
-        "sp_attack": 130,
-        "sp_defense": 75,
-        "speed": 110
+        "hp": 35,
+        "attack": 55,
+        "defense": 40,
+        "sp_attack": 50,
+        "sp_defense": 50,
+        "speed": 90
       }],
       "base_mega_stats": [{
         "hp": 0,
@@ -1108,7 +1108,7 @@
           "acc": 100,
           "speed_priority": 0,
           "base_critical_hit_rate": 4.17,
-          "physical_contact": 0,
+          "physical_contact": 1,
           "punch_move": 1,
           "biting _move": 0,
           "affected_by_gravity": 0,
@@ -1119,7 +1119,7 @@
           "reflectable": 0,
           "copyable_by_mirror_move": 1,
           "sound_type": "",
-          "sec_eff": "0",
+          "sec_eff": "",
           "recovery": 0,
           "percent_eff": 0
         }],
