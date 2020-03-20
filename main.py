@@ -266,11 +266,11 @@ def damage_calculation(move, attacker, defender):
         attacker_stat_attack = attacker_stat_attack/2
 
       #Category Attack      
-      if move_category == 1:
+      if move_category == "Physical":
         defender_stat = defender_stat_defense
         attacker_stat = attacker_stat_attack
 
-      elif move_category == 2:
+      elif move_category == "Special":
         defender_stat = defender_stat_special_defense
         attacker_stat = attacker_stat_special_attack
 
@@ -308,10 +308,11 @@ def damage_calculation(move, attacker, defender):
 
       #Calc Modifiers
       modifier = int(weather_mod) * int(badge) * int(critical) * float(random_mod) * int(stab) * int(type_calculation) * int(burn_mod)
+      modifier += 1
 
       #Calc Damage
       damage = (((((2 * attacker_level)/5 + 2) * move_power * (attacker_stat/defender_stat))/50) + 2 ) * modifier
-
+      print(damage)
       #Calc LifeOrb
       if attacker_attach_item == 'life_orb':
               damage = damage * 1.3
@@ -330,9 +331,9 @@ def damage_calculation(move, attacker, defender):
       defender.update_status(defender.current_hp, defender_current_hp)
 
       print(defender.name, "had", defender_previous_hp, "and now it has", defender.current_hp)
-
+      percent_hp_defender = (attacker.current_hp * 100/attacker.hp) 
       print("Attacker HP", attacker.current_hp)
-      print("Defender HP", defender.current_hp)
+      print("Defender HP", defender.current_hp, "(",percent_hp_defender,"%)")
       return damage
 
 def random_climate(pokemon_01, pokemon_02):
@@ -343,61 +344,53 @@ def game(player, npc):
     if __name__ == '__main__':
       turn_counter = 0
 
-      game_in_progress = True
-      while game_in_progress:
-        turn()
+      
+
+      turn()
 
 pokemon_01 = player.pokemon_01
 pokemon_02 = npc.pokemon_01
 
 def turn(pokemon_01, pokemon_02):
-      print(pokemon_01.name, "is out")
-      print(pokemon_02.name, "is out")
-      turn_counter = 0
       game_in_progress = True
-      move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
+      while game_in_progress:
+        print(pokemon_01.name, "is out")
+        print(pokemon_02.name, "is out")
+        turn_counter = 0
+        game_in_progress = True
+        move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
 
-      move_list_opponent = [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
-      action = 0
+        move_list_opponent = [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
+        action = 0
 
-      while not int(action) in range(1,5): 
-        print('Turn ', turn_counter)
-        print('What will', pokemon_01.name, "do?")
-        print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
+        while not int(action) in range(1,5): 
+          print('Turn ', turn_counter)
+          print('What will', pokemon_01.name, "do?")
+          print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
 
-        action = int(input(" "))
+          action = int(input(" "))
 
-      action = action - 1
-      chosen_move = move_list[action]
-      randon_choice = random.randint(0, 3)
-      chosen_move_opponent = move_list_opponent[randon_choice]
+        action = action - 1
+        chosen_move = move_list[action]
+        randon_choice = random.randint(0, 3)
+        chosen_move_opponent = move_list_opponent[randon_choice]
 
-      #checkPriority
-      Moves.action("", action, pokemon_01, pokemon_02)
-      if game_in_progress == True:
-        Moves.action("", randon_choice, pokemon_02, pokemon_01)
-      turn_counter += 1
-      if pokemon_01.current_hp <= 0:
+        #checkPriority
+        if chosen_move.category != "Other":
+          Moves.action("", action, pokemon_01, pokemon_02)
+        if game_in_progress == True:
+          if chosen_move_opponent.category != "Other":
+            Moves.action("", randon_choice, pokemon_02, pokemon_01)
+       
 
-        #team_a.remove[pokemon_01]
-        for n in team_a:
-          print(team_a.index(pokemon_01))
+        if pokemon_01.current_hp <= 0:
+          print(pokemon_01.name, 'was knocked out.')
+          print('game!')          
+          game_in_progress = False
 
-        game_in_progress = False
-        print('game!')          
-
-      elif pokemon_02.current_hp <= 0:
-        #team_b.remove[0]
-        print(pokemon_02.name)
-        print(team_b.index(pokemon_02))
-        game_in_progress = False
-
-        for i, o in enumerate(team_b):
-            if o.current_hp <= 0:
-                print[team_b[i].name]
-                del team_b[i]
-                break
-
-        print('game!')
+        elif pokemon_02.current_hp <= 0:
+          print(pokemon_02.name, 'was knocked out.')
+          print('game!')
+          game_in_progress = False
 
 turn(pokemon_01, pokemon_02)  
