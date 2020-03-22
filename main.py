@@ -12,25 +12,85 @@ def calc_nature(nature, target):
       hin_nature = 0.9
       neu_nature = 1.0
 
-      if nature == 'adamant' and target == "attack":
+      if nature == 'Adamant' and target == "attack":
               nature = ben_nature
-      if nature == 'adamant' and target == "sp_attack":
-              nature = hin_nature            
-      if nature == 'modest' and target == "attack":
+      if nature == 'Adamant' and target == "sp_attack":
               nature = hin_nature
-      if nature == 'modest' and target == "sp_attack":
-              nature = ben_nature   
-      if nature == 'bold' and target == "attack":
+      if nature == 'Loney' and target == "attack":
+              nature = ben_nature
+      if nature == 'Lonely' and target == "defense":
+              nature = hin_nature                  
+      if nature == 'Naughty' and target == "attack":
+              nature = ben_nature
+      if nature == 'Naughty' and target == "sp_defense":
+              nature = hin_nature         
+      if nature == 'Brave' and target == "attack":
+              nature = ben_nature
+      if nature == 'Brave' and target == "speed":
+              nature = hin_nature      
+      if nature == 'Bold' and target == "defense":
+              nature = ben_nature                  
+      if nature == 'Bold' and target == "attack":
               nature = hin_nature
-      if nature == 'bold' and target == "defense":
-              nature = ben_nature    
-      if nature == 'calm' and target == "attack":
+      if nature == 'Impish' and target == "defense":
+              nature = ben_nature                  
+      if nature == 'Impish' and target == "sp_attack":
+              nature = hin_nature    
+      if nature == 'Lax' and target == "defense":
+              nature = ben_nature                  
+      if nature == 'Lax' and target == "sp_defense":
+              nature = hin_nature    
+      if nature == 'Relaxed' and target == "defense":
+              nature = ben_nature                  
+      if nature == 'Relaxed' and target == "speed":
               nature = hin_nature
-      if nature == 'calm' and target == "defense":
-              nature = ben_nature                            
-      if nature == 'timid' and target == "attack":
+      if nature == 'Modest' and target == "sp_attack":
+              nature = ben_nature                             
+      if nature == 'Modest' and target == "attack":
+              nature = hin_nature  
+      if nature == 'Mild' and target == "sp_attack":
+              nature = ben_nature                             
+      if nature == 'Mild' and target == "defense":
+              nature = hin_nature                             
+      if nature == 'Rash' and target == "sp_attack":
+              nature = ben_nature                             
+      if nature == 'Rash' and target == "sp_defense":
+              nature = hin_nature   
+      if nature == 'Quiet' and target == "sp_attack":
+              nature = ben_nature                             
+      if nature == 'Quiet' and target == "speed":
+              nature = hin_nature    
+      if nature == 'Calm' and target == "sp_defense":
+              nature = ben_nature                    
+      if nature == 'Calm' and target == "attack":
+              nature = hin_nature                 
+      if nature == 'Gentle' and target == "sp_defense":
+              nature = ben_nature                    
+      if nature == 'Gentle' and target == "defense":
+              nature = hin_nature  
+      if nature == 'Careful' and target == "sp_defense":
+              nature = ben_nature                    
+      if nature == 'Careful' and target == "sp_attack":
+              nature = hin_nature                       
+      if nature == 'Sassy' and target == "sp_defense":
+              nature = ben_nature                    
+      if nature == 'Sassy' and target == "speed":
+              nature = hin_nature                    
+      if nature == 'Hasty' and target == "speed":
+              nature = ben_nature
+      if nature == 'Hasty' and target == "defense":
+              nature = hin_nature     
+      if nature == 'Jolly' and target == "speed":
+              nature = ben_nature
+      if nature == 'Jolly' and target == "sp_attack":
+              nature = hin_nature 
+      if nature == 'Naive' and target == "speed":
+              nature = ben_nature
+      if nature == 'Naive' and target == "sp_defense":
+              nature = hin_nature               
+      if nature == 'Timid' and target == "attack":
               nature = hin_nature
-      if nature == 'timid' and target == "speed":
+      if nature == 'Timid' and target == "speed":
               nature = ben_nature
       else:
               nature = neu_nature
