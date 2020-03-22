@@ -166,8 +166,6 @@ class Pokemon:
         update_status(self.sp_defense, f_sp_defense)
         update_status(self.speed, f_speed)
         update_status(self.ability, f_ability)
-			
-
 
 class Character:
       """
@@ -195,6 +193,9 @@ class Character:
 player = Character(0)    
 npc = Character(1)    
 print(player.pokemon_01.name)
+game_in_progress = True
+battle_in_progress = True
+turn_in_progress = True
 
 ####################### - Print Functions
 def print_damage(target, move, damage):
@@ -340,57 +341,62 @@ def random_climate(pokemon_01, pokemon_02):
 
     pass
 
-def game(player, npc):
-    if __name__ == '__main__':
-      turn_counter = 0
 
-      
 
-      turn()
+def game(player, npc, game_in_progress):
+  game_in_progress = game_in_progress
+  while game_in_progress:
+    pokemon_01 = player.pokemon_01
+    pokemon_02 = npc.pokemon_01
+    battle(player, npc, pokemon_01, pokemon_02, game_in_progress) 
 
-pokemon_01 = player.pokemon_01
-pokemon_02 = npc.pokemon_01
+def battle(player, npc, pokemon_01, pokemon_02, battle_in_progress):
+  battle_in_progress = battle_in_progress
+  while battle_in_progress:
+    turn(pokemon_01, pokemon_02, turn_in_progress) 
 
-def turn(pokemon_01, pokemon_02):
-      game_in_progress = True
-      while game_in_progress:
-        print(pokemon_01.name, "is out")
-        print(pokemon_02.name, "is out")
-        turn_counter = 0
-        game_in_progress = True
-        move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
+def turn(pokemon_01, pokemon_02, turn_in_progress):
+  turn_in_progress = turn_in_progress
+  while turn_in_progress:
+    print(pokemon_01.name, "is out")
+    print(pokemon_02.name, "is out")
+    turn_counter = 1
 
-        move_list_opponent = [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
-        action = 0
+    print('turn: ', turn_counter)
+    move_list = [pokemon_01.move_01, pokemon_01.move_02, pokemon_01.move_03, pokemon_01.move_04, "Change Pokemon"]
 
-        while not int(action) in range(1,5): 
-          print('Turn ', turn_counter)
-          print('What will', pokemon_01.name, "do?")
-          print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
+    move_list_opponent = [pokemon_02.move_01, pokemon_02.move_02, pokemon_02.move_03, pokemon_02.move_04]   
+    action = 0
 
-          action = int(input(" "))
+    while not int(action) in range(1,5): 
+      print('Turn ', turn_counter)
+      print('What will', pokemon_01.name, "do?")
+      print("\n[1]", move_list[0].name, "\n[2]", move_list[1].name, "\n[3]", move_list[2].name, "\n[4]", move_list[3].name, "\n\n[5] " + move_list[4])
 
-        action = action - 1
-        chosen_move = move_list[action]
-        randon_choice = random.randint(0, 3)
-        chosen_move_opponent = move_list_opponent[randon_choice]
+      action = int(input(" "))
 
-        #checkPriority
-        if chosen_move.category != "Other":
-          Moves.action("", action, pokemon_01, pokemon_02)
-        if game_in_progress == True:
-          if chosen_move_opponent.category != "Other":
-            Moves.action("", randon_choice, pokemon_02, pokemon_01)
-       
+    action = action - 1
+    chosen_move = move_list[action]
+    randon_choice = random.randint(0, 3)
+    chosen_move_opponent = move_list_opponent[randon_choice]
 
-        if pokemon_01.current_hp <= 0:
-          print(pokemon_01.name, 'was knocked out.')
-          print('game!')          
-          game_in_progress = False
+    #checkPriority
+    if chosen_move.category != "Other":
+      Moves.action("", action, pokemon_01, pokemon_02)
+    if turn_in_progress == True:
+      if chosen_move_opponent.category != "Other":
+        Moves.action("", randon_choice, pokemon_02, pokemon_01)
+  
 
-        elif pokemon_02.current_hp <= 0:
-          print(pokemon_02.name, 'was knocked out.')
-          print('game!')
-          game_in_progress = False
+    if pokemon_01.current_hp <= 0:
+      print(pokemon_01.name, 'was knocked out.')
+      print('game!')          
+      turn_in_progress = False
 
-turn(pokemon_01, pokemon_02)  
+    elif pokemon_02.current_hp <= 0:
+      print(pokemon_02.name, 'was knocked out.')
+      print('game!')
+      turn_in_progress = False
+
+
+game(player, npc, game_in_progress)  
